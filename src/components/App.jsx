@@ -1,16 +1,18 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+import { Component } from "react";
+import {AddProfileForm} from "./AddProfileForm/AddProfileForm";
+
+export class App extends Component {
+  handleAddProfile = (formData) => {
+    console.log('FormData:', formData);
+    const finaleProfile = { ...formData, id: Math.random().toString() }
+    console.log(finaleProfile);
+  }
+
+  render() {
+    return (
+    <>
+        <AddProfileForm handleAddProfile={ this.handleAddProfile } />
+    </>
+    )
+  };
 };
