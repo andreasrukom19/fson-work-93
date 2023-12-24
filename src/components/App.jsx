@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { AddProfileForm } from "./AddProfileForm/AddProfileForm";
 import { FriendsList } from "./FriendsList/FriendsList";
+import { Modal } from "./Modal/Modal";
 
 const friendsData = [
   {id: '1', name: 'Max', age: 21, isFavourite: false},
@@ -13,6 +14,8 @@ export class App extends Component {
   state = {
     friends: friendsData,
     filter: '',
+    isOpenModal: false,
+    modalData: null,
   }
 
   handleAddProfile = (formData) => {
@@ -43,6 +46,18 @@ export class App extends Component {
     this.setState({ filter: value })
   }
 
+  handleShowDetails = (profileId) => {
+    const selectedProfile = this.state.friends.find(friend => friend.id === profileId);
+    this.setState({
+      isOpenModal: true,
+      modalData: selectedProfile,
+    })
+  }
+
+  handleCloseModal = () => {
+    this.setState({ isOpenModal: false });
+  }
+
   render() {
     const filteredProfiles = this.state.friends.filter(profile =>
       profile.name
@@ -71,7 +86,12 @@ export class App extends Component {
           title="Friends List"
           handlePrintProfileName={this.handlePrintProfileName}
           handleDeleteProfile={this.handleDeleteProfile}
+          handleShowDetails={this.handleShowDetails}
         />
+        {this.state.isOpenModal && <Modal
+          modalData={this.state.modalData}
+          handleCloseModal={this.handleCloseModal}
+        />}
     </div>
     )
   };
