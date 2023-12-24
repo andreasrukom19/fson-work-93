@@ -11,12 +11,12 @@ export class AddProfileForm extends Component {
 
     const name = elems.profileName.value;
     const age = elems.profileAge.value;
-    const favourite = elems.profileFavourite.checked;
+    const isFavourite = elems.profileFavourite.checked;
 
     const formData = {
       name,
       age: Number(age),
-      favourite
+      isFavourite
     }
 
     this.props.handleAddProfile(formData);
