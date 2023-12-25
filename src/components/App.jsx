@@ -58,6 +58,20 @@ export class App extends Component {
     this.setState({ isOpenModal: false });
   }
 
+  componentDidMount() {
+    const stringifiedFriends = localStorage.getItem('friends');
+    const friends = JSON.parse(stringifiedFriends) ?? [];
+    this.setState({ friends });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.friends !== this.state.friends) {
+      const stringifiedFriends = JSON.stringify(this.state.friends);
+      localStorage.setItem('friends', stringifiedFriends);
+    }
+
+  }
+
   render() {
     const filteredProfiles = this.state.friends.filter(profile =>
       profile.name
