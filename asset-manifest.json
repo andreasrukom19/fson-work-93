@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fson-work-93/static/css/main.157ac789.css",
-    "main.js": "/fson-work-93/static/js/main.88c6d6f6.js",
+    "main.js": "/fson-work-93/static/js/main.823910ac.js",
     "index.html": "/fson-work-93/index.html",
     "main.157ac789.css.map": "/fson-work-93/static/css/main.157ac789.css.map",
-    "main.88c6d6f6.js.map": "/fson-work-93/static/js/main.88c6d6f6.js.map"
+    "main.823910ac.js.map": "/fson-work-93/static/js/main.823910ac.js.map"
   },
   "entrypoints": [
     "static/css/main.157ac789.css",
-    "static/js/main.88c6d6f6.js"
+    "static/js/main.823910ac.js"
   ]
 }
